@@ -22,15 +22,19 @@ const PaqueteSchema = Schema({
     },
     partido:{
         name:{
-            type: String,
+            type: Array,
             require:true
+        },
+        cant_partidos:{
+            type: Number,
+            require:false
         },
         estadio:{
             type: String,
             require:true
         },
         fecha_partido:{
-            type: Date,
+            type: String,             
             require:true
         },
         fase:{
@@ -66,11 +70,11 @@ const PaqueteSchema = Schema({
             require:true
         },
         fecha_salida:{
-            type: Date,
+            type: String,
             require:true
         },
         fecha_llegada:{
-            type: Date,
+            type: String,
             require:true
         },
         duracion:{

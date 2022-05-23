@@ -5,7 +5,7 @@ const createPaquete = async(req,res=response)=>{
     console.log("Se guardo",req.body)
     
     const paquete=new Paquete(req.body)
-    
+    paquete.partido.cant_partidos=paquete.partido.name.length
     await paquete.save(function(err,suc){
         if(err){
             console.log(err)
