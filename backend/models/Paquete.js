@@ -65,6 +65,10 @@ const PaqueteSchema = Schema({
         },
     },
     transporte:{
+        name:{
+            type: String,
+            require:true
+        },
         tipo:{
             type: String,
             require:true
