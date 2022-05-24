@@ -35,9 +35,17 @@ const revalidadToken = (req,res=response)=>{
     })
 }
 
+const getAllUsers = async(req,res=response)=>{
+    const users=await User.find()
+    res.json({
+        users
+    })
+}
+
 
 module.exports ={
     crearUsuario
     ,loginUsuario
     ,revalidadToken
+    ,getAllUsers
 }

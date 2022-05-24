@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const{check}=require('express-validator');
 const{validarCampos}=require('../middlewares/filter-validator');
-const {crearUsuario,loginUsuario,revalidadToken}=require('../controllers/auth');
+const {crearUsuario,loginUsuario,revalidadToken,getAllUsers}=require('../controllers/auth');
 const router =Router();
 
 router.post(
@@ -25,7 +25,7 @@ router.post(
     loginUsuario
 );
 
-
+router.get('/', getAllUsers);
 router.get('/renew', revalidadToken);
 
 module.exports = router;

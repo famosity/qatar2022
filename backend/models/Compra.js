@@ -4,16 +4,15 @@ const CompraSchema = Schema({
 
     usuario:{
         type: Object,
-        require:true
+        required: true
     },
     paquete:{
         type: Object,
-        require:true
+        required: true
     },
     estado:{
         type: String,
-        require:true
     }
 })
   
-  module.exports = model('Compra', CompraSchema)
+module.exports = model('Compra', CompraSchema)

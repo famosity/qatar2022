@@ -21,6 +21,7 @@ const mongoose =require('mongoose');
     app.use('/api/evento/',require('./routes/evento'));
     app.use('/api/estadia/',require('./routes/estadia'));
     app.use('/api/paquete/',require('./routes/paquete'));
+    app.use('/api/compra/',require('./routes/compra'));
 //
 
 //escuchar peticiones 

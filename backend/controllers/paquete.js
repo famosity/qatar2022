@@ -40,6 +40,10 @@ const getPaqueteById = async(req,res=response)=>{
 
 
 const getAllPaquete = async(req,res=response)=>{
+    const query= {};
+    query['hotel.estrellas']=4
+    const paquetes=await Paquete.find(query)
+    console.log(paquetes)
     const paquete=await Paquete.find()
     res.json({
         paquete
