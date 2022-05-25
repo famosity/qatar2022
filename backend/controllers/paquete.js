@@ -41,12 +41,13 @@ const getPaqueteById = async(req,res=response)=>{
 
 const getAllPaquete = async(req,res=response)=>{
     const query= {};
-    query['hotel.estrellas']=4
+    //query['hotel.estrellas']=4
+    query['estado']='disponible'
     const paquetes=await Paquete.find(query)
     console.log(paquetes)
-    const paquete=await Paquete.find()
+    // const paquete=await Paquete.find()
     res.json({
-        paquete
+        paquetes
     })
 }
 

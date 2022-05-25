@@ -89,7 +89,16 @@ const PaqueteSchema = Schema({
     precio:{
         type: Number,
         require:true
+    },
+    estado:{
+        type: String,
+        require:true
+    },
+    stock:{
+        type: Number,
+        require:true
     }
+    
 })
   
   module.exports = model('Paquete', PaqueteSchema)
