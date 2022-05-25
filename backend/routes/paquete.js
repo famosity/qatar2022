@@ -4,7 +4,8 @@ const {
     updatePaquete,
     getPaqueteById,
     getAllPaquete,
-    detelePaquete
+    detelePaquete,
+    
 }=require('../controllers/paquete');
 const router =Router();
 
@@ -19,6 +20,8 @@ router.put(
 router.get(
     '/:paqueteId',getPaqueteById
 )
+
+
 
 router.get(
     '/',getAllPaquete

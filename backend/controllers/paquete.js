@@ -1,5 +1,7 @@
 const {response}=require('express');
 const Paquete = require('../models/Paquete');
+const url = require('url');
+const querystring = require('querystring');
 
 const createPaquete = async(req,res=response)=>{
     console.log("Se guardo",req.body)
@@ -40,16 +42,20 @@ const getPaqueteById = async(req,res=response)=>{
 
 
 const getAllPaquete = async(req,res=response)=>{
+    let parsedUrl= url.parse(req.url);
+    let parsedQuery=querystring.parse(parsedUrl.query);
+    const{estrella,partidos,puntuacion,fase,vuelo}=parsedQuery;
+    console.log(estrella,partidos,puntuacion,fase,vuelo)
     const query= {};
     //query['hotel.estrellas']=4
     query['estado']='disponible'
     const paquetes=await Paquete.find(query)
-    console.log(paquetes)
     // const paquete=await Paquete.find()
     res.json({
         paquetes
     })
 }
+
 
 const detelePaquete = (req,res=response)=>{
     const paqueteId=req.params.paqueteId
@@ -68,5 +74,5 @@ module.exports ={
     updatePaquete,
     getPaqueteById,
     getAllPaquete,
-    detelePaquete
+    detelePaquete,
 }
