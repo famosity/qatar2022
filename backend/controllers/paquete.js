@@ -49,6 +49,10 @@ const getAllPaquete = async(req,res=response)=>{
     const query= {};
     //query['hotel.estrellas']=4
     query['estado']='disponible'
+    if(estrella) query['hotel.estrellas']=estrella
+    if(partidos) query['partido.cant_partidos']=partidos
+    if(puntuacion) query['hotel.puntuacion']=puntuacion
+    if(fase) query['partido.fase']=fase
     const paquetes=await Paquete.find(query)
     // const paquete=await Paquete.find()
     res.json({

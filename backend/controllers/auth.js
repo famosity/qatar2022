@@ -36,10 +36,19 @@ const revalidadToken = (req,res=response)=>{
 }
 
 const getAllUsers = async(req,res=response)=>{
-    const users=await User.find()
+    const users=await User.find();
     res.json({
-        users
+        users,
     })
+}
+
+const getEmailAllUser = async()=>{
+    const emails=[]
+    const users=await User.find();
+    await users.forEach(user=>{
+        emails.push(user.email)
+    })
+    return emails
 }
 
 
@@ -48,4 +57,5 @@ module.exports ={
     ,loginUsuario
     ,revalidadToken
     ,getAllUsers
+    ,getEmailAllUser
 }
