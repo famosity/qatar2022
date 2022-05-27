@@ -10,8 +10,9 @@ const UsuarioSchema = Schema({
     require: true
   },
   cuit: {
-    type: String,
-    require: true
+    type: Number,
+    require: true,
+    unique: true
   },
   email: {
     type: String,
