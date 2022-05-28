@@ -5,6 +5,9 @@ const mongoose =require('mongoose');
 const nodemailer = require('nodemailer');
 const cron = require('node-cron');
 const{getEmailAllUser}=require('./controllers/auth');
+const{
+    controlCompra
+}= require('./controllers/compra');
 
 
 //crear servidor de express
@@ -26,7 +29,7 @@ const{getEmailAllUser}=require('./controllers/auth');
     app.use('/api/paquete/',require('./routes/paquete'));
     app.use('/api/compra/',require('./routes/compra'));
 //
-
+controlCompra();
 //obtener todos los correos de los usuarios
 const transporter = nodemailer.createTransport({
     service: "gmail",
