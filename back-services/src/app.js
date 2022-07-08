@@ -4,12 +4,13 @@ import pkg from "../package.json";
 import 'dotenv/config'
 import cors from "cors";
 import dbConnection from "./database";
-
+import { mailer } from "./marketing/nodemailer.js";
 import authRoutes from './routes/auth.routes'
 import userRoutes from './routes/user.routes'
 import { createRoles } from "./libs/initialSetup";
 
 const app = express();
+
 createRoles();
 
 app.set('pkg', pkg);
@@ -26,6 +27,10 @@ app.use(morgan("dev"));
     app.use(cors());
 //
 
+//mailing
+    mailer();
+//
+
 app.get('/', (req, res) => {
     res.json({
         name: app.get('pkg').name,
@@ -34,7 +39,6 @@ app.get('/', (req, res) => {
         version: app.get('pkg').version
     });
 });
-
 //apis
     app.use('/api/auth', authRoutes)
     app.use('/api/user', userRoutes)

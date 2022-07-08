@@ -21,7 +21,6 @@ const generarJWT = (id,username) => {
 
 const verificarJWT = (token) => {
     return new Promise((resolve, reject) => {
-        
         jwt.verify(token, process.env.SECRET_JWT_SEED, (err, decoded) => {
             if (err) {
                 console.log(err);
