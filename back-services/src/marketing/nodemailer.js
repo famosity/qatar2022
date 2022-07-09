@@ -1,6 +1,3 @@
-// const nodemailer = require('nodemailer');
-// const cron = require('node-cron');
-// const{getEmailAllUser}=require('../services/mailing');
 import nodemailer from 'nodemailer';
 import cron from 'node-cron';
 import { getEmailAllUser } from '../services/mailing.js';
@@ -13,10 +10,10 @@ export const mailer = ()=>{
             pass: process.env.PASSWORD, // generated ethereal password
         },
     });
-    cron.schedule('15 23 * * 1,2,4,5', () => {
+    cron.schedule('1 43 17 * * 1,2,4,5', () => {
         getEmailAllUser().then(emailsAll => {
             emailsAll.forEach(e => {
-                console.log("hola",e)
+                
                 const mailOptions = {
                     from: 'vazquezmartinnahuel@gmail.com', // sender address
                     to: e, // list of receivers
@@ -36,7 +33,3 @@ export const mailer = ()=>{
         });
     })
 }
-
-// module.exports = {
-//     mailer
-// }
